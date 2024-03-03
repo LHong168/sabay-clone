@@ -1,7 +1,6 @@
 import React from 'react'
 
-function Banner
-() {
+function Banner() {
   return (
     <header className='hidden md:block w-full bg-black py-5'>
         <div className=' w-3/5 m-auto flex justify-between align-middle'>
