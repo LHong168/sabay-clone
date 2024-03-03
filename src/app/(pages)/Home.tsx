@@ -30,7 +30,7 @@ const HomePage = () => {
 
         <div className='bg-white py-5 px-10 shadow-md'>
 
-          <div className='flex space-x-1'>
+          <div className='flex space-x-1 mb-5'>
             <Card></Card>
             <Card></Card>
             <Card></Card>
@@ -59,11 +59,13 @@ const HomePage = () => {
         <div className='bg-white py-5 px-10 flex space-x-5 shadow-md'>
           
             <div className='w-1/3 group relative'>
-              <div className='bg-black '>
-                <img src="maxresdefault.jpg" alt="" className='transition-transform ease-in-out transform group-hover:scale-95' />
-              </div>
-              <div className='bg-pink-500 p-5'>
-                <h1 className='text-white text-3xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+              <div className='group'>
+                  <div className='bg-black group-hover:shadow-inner'>
+                  <img src="/maxresdefault.jpg" alt="" className='transition-transform ease-in-out transform group-hover:scale-95' />
+                  </div>
+                  <div className='bg-pink-500 px-1 py-3'>
+                    <h1 className='text-black text-xl'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                  </div>
               </div>
             </div>
 

@@ -27,46 +27,12 @@ const CategoryPage = () => {
                             <img src="/maxresdefault.jpg" alt="" className='transition-transform ease-in-out transform group-hover:scale-95 object-cover h-full' />
                         </div>
                         <div className='w-2/3 flex flex-col justify-center'>
-                            <h1 className='text-black text-xl mb-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium iure a optio fugit facere exercitationem nulla</h1>
+                            <h1 className='text-black text-xl mb-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h1>
                             <p className="text-gray-500 mb-2">Time</p>
                             <hr />
-                            <h2 className="text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nemo nostrum cum optio, necessitatibus veritatis error voluptas ullam minus et totam ratione doloribus alias debitis corrupti dolorum nisi facere eveniet.</h2>
+                            <h2 className="text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nemo nostrum cum optio,</h2>
                         </div>
                     </div>
-                    <div className='flex space-x-3 h-48 group'>
-                        <div className='bg-black w-1/3 flex justify-center items-center'>
-                            <img src="/maxresdefault.jpg" alt="" className='transition-transform ease-in-out transform group-hover:scale-95 object-cover h-full' />
-                        </div>
-                        <div className='w-2/3 flex flex-col justify-center'>
-                            <h1 className='text-black text-xl mb-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium iure a optio fugit facere exercitationem nulla</h1>
-                            <p className="text-gray-500 mb-2">Time</p>
-                            <hr />
-                            <h2 className="text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nemo nostrum cum optio, necessitatibus veritatis error voluptas ullam minus et totam ratione doloribus alias debitis corrupti dolorum nisi facere eveniet.</h2>
-                        </div>
-                    </div>
-                    <div className='flex space-x-3 h-48 group'>
-                        <div className='bg-black w-1/3 flex justify-center items-center'>
-                            <img src="/maxresdefault.jpg" alt="" className='transition-transform ease-in-out transform group-hover:scale-95 object-cover h-full' />
-                        </div>
-                        <div className='w-2/3 flex flex-col justify-center'>
-                            <h1 className='text-black text-xl mb-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium iure a optio fugit facere exercitationem nulla</h1>
-                            <p className="text-gray-500 mb-2">Time</p>
-                            <hr />
-                            <h2 className="text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nemo nostrum cum optio, necessitatibus veritatis error voluptas ullam minus et totam ratione doloribus alias debitis corrupti dolorum nisi facere eveniet.</h2>
-                        </div>
-                    </div>
-                    <div className='flex space-x-3 h-48 group'>
-                        <div className='bg-black w-1/3 flex justify-center items-center'>
-                            <img src="/maxresdefault.jpg" alt="" className='transition-transform ease-in-out transform group-hover:scale-95 object-cover h-full' />
-                        </div>
-                        <div className='w-2/3 flex flex-col justify-center'>
-                            <h1 className='text-black text-xl mb-2'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusantium iure a optio fugit facere exercitationem nulla</h1>
-                            <p className="text-gray-500 mb-2">Time</p>
-                            <hr />
-                            <h2 className="text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores nemo nostrum cum optio, necessitatibus veritatis error voluptas ullam minus et totam ratione doloribus alias debitis corrupti dolorum nisi facere eveniet.</h2>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
