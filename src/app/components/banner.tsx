@@ -4,9 +4,9 @@ function Banner
 () {
   return (
     <header className=' block w-full bg-black py-5'>
-        <div className=' w-4/5 m-auto flex justify-between align-middle'>
-            <img src="favicon.ico" className='w-10' />
-            <img src="favicon.ico" className='w-10' />
+        <div className=' w-3/5 m-auto flex justify-between align-middle'>
+            <img src="/sabay_logo.png" className='w-28' />
+            <img src="/banner_ads.gif" />
         </div>
     </header>
   )

@@ -8,11 +8,13 @@ export default function ParentLayout({
   }: Readonly<{
     children: React.ReactNode;
   }>) {
+    // default layout for every page including top banner, navbar and footer
+    // the children is the different page that will display 
     return (
       <>
         <Banner></Banner>
         <NavBar></NavBar>
-        <div>{children}</div>
+        <main className='py-5 bg-[#F6F6F6]'>{children}</main>
         <Footer></Footer>
       </>
     );
