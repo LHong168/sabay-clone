@@ -16,34 +16,41 @@ const ArticlePage = async () => {
     });
 
   return (
-    <div className='w-3/5 m-auto flex space-x-10 mb-5'>
-      <section className='w-2/3 bg-white shadow-lg p-5'>
-        <div>
-          <h1 className='text-2xl'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae est eveniet quas, quis ea culpa nulla laborum? A provident</h1>
-          <p className='my-5 text-gray-500'>time</p>
+    <div className='w-full md:w-3/5 m-auto mb-5'>
+
+        <div className='md:hidden block flex justify-center'>
+            <img src="/ads.png" alt="" className='my-10 w-1/2 md:w-full' />
         </div>
 
-        <hr className='my-5' />
+      <div className='space-x-10 flex flex-wrap md:flex-nowrap'>
+        <section className='w-full md:w-2/3 bg-white shadow-lg p-5'>
+          <div>
+            <h1 className='text-2xl'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae est eveniet quas, quis ea culpa nulla laborum? A provident</h1>
+            <p className='my-5 text-gray-500'>time</p>
+          </div>
 
-        {/* <div className='text-justify' dangerouslySetInnerHTML={{ __html: article.data.attributes.content }} /> */}
+          <hr className='my-5' />
 
-        <p className='my-5'>author</p>
+          <div className='text-justify' dangerouslySetInnerHTML={{ __html: article.data.attributes.content }} />
 
-      </section>
+          <p className='my-5'>author</p>
 
-      <section className='w-1/3'>
+        </section>
 
-        <img src="/ads.png" alt="" className='mb-10' />
+        <section className='w-full md:w-1/3 flex flex-wrap justify-center'>
 
-        <HotNews></HotNews>
+          <img src="/ads.png" alt="" className='my-10 w-1/2 md:w-full' />
 
-        <img src="/ads.png" alt="" className='my-10' />
+          <HotNews></HotNews>
 
-        <RecentNews></RecentNews>
+          <img src="/ads.png" alt="" className='my-10 w-1/2 md:w-full' />
 
-        <img src="/ads.png" alt="" className='my-10' />
+          <RecentNews></RecentNews>
 
-      </section>
+          <img src="/ads.png" alt="" className='my-10 w-1/2 md:w-full' />
+
+        </section>
+      </div>
     </div>
   )
 }

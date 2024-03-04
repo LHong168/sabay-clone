@@ -6,14 +6,6 @@ function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    // <nav className='bg-red-500 sticky top-0 z-20'>
-    //   <div className='w-3/5 m-auto'>
-    //     <ul className='flex text-white font-medium'>
-    //       <Link href="/" className='bg-red-600 p-3 font-medium'>Home</Link>
-    //       <Link href="/topics/Entertainment" className='text-gray-200 p-3 hover:text-white'>Entertainment</Link>
-    //     </ul>
-    //   </div>
-    // </nav>
     <nav className="bg-black md:bg-red-500 sticky top-0 z-20">
       <div className="sm:block md:hidden flex flex-wrap justify-between items-center p-3">
         {/* Toggle button for mobile */}
@@ -56,10 +48,10 @@ function NavBar() {
         <div className={`mt-4 ${isOpen ? 'block' : 'hidden'} md:hidden w-full`}>
           <ul className="flex flex-col">
             <li className="mb-2">
-              <Link href="#" className="text-white hover:text-gray-300">Home</Link>
+              <Link href="/" className="text-white hover:text-gray-300">Home</Link>
             </li>
             <li className="mb-2">
-              <Link href="#" className="text-white hover:text-gray-300">Entertainment</Link>
+              <Link href="/topics/Entertainment" className="text-white hover:text-gray-300">Entertainment</Link>
             </li>
           </ul>
         </div>

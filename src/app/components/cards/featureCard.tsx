@@ -2,10 +2,10 @@ import React from 'react'
 
 const FeatureCard = () => {
   return (
-    <div className="relative w-full h-full bg-black overflow-hidden shadow-lg group">
+    <div className="relative h-full bg-black overflow-hidden shadow-lg group">
         <div className="absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-t from-black to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <div className='w-full h-full flex justify-center align-middle'>
-          <img src="maxresdefault.jpg" alt="" className="opacity-70" />
+        <div className='h-full flex justify-center align-middle'>
+          <img src="maxresdefault.jpg" alt="" className="opacity-70 object-cover h-full " />
         </div>
         <div className="absolute top-5 left-0 px-4 py-2 bg-black">
             <p className="text-md text-white text-center">Category</p>
