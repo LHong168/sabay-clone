@@ -2,7 +2,19 @@ import React from 'react';
 import HotNews from '@/app/components/sideNews/hotNews';
 import RecentNews from '@/app/components/sideNews/recentNews';
 
-const ArticlePage = () => {
+const ArticlePage = async () => {
+
+  const article = await fetch('http://localhost:1337/api/articles/1', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then(response => response.json())
+    .then(data => {
+      return data; // Return data here
+    });
+
   return (
     <div className='w-3/5 m-auto flex space-x-10 mb-5'>
       <section className='w-2/3 bg-white shadow-lg p-5'>
@@ -13,10 +25,7 @@ const ArticlePage = () => {
 
         <hr className='my-5' />
 
-        <div className='text-justify'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis doloremque delectus, blanditiis neque magni temporibus fugit, asperiores quisquam reiciendis quae harum dolores officia quaerat, odit et sint quam repudiandae repellat.</p>
-          <img src="/maxresdefault.jpg" alt="" className='my-5' />
-        </div>
+        {/* <div className='text-justify' dangerouslySetInnerHTML={{ __html: article.data.attributes.content }} /> */}
 
         <p className='my-5'>author</p>
 
