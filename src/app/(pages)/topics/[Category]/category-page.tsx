@@ -1,7 +1,7 @@
 import React from 'react';
-import HotNews from '@/app/components/sideNews/hotNews';
-import RecentNews from '@/app/components/sideNews/recentNews';
-import CategoryList from '@/app/components/category/categoryList';
+import HotNews from '@/app/components/sideNews/hot-news';
+import RecentNews from '@/app/components/sideNews/recent-news';
+import CategoryList from '@/app/components/category/category-list';
 
 interface CategoryPageProps {
     category: string;
@@ -10,9 +10,9 @@ interface CategoryPageProps {
 const CategoryPage = ({category} : CategoryPageProps) => {
 
     return (
-        <div className='w-full md:w-3/5 m-auto'>
+        <>
             
-            <div className='md:hidden block flex justify-center'>
+            <div className='md:hidden flex justify-center'>
                 <img src="/ads.png" alt="" className='my-10 w-1/2 md:w-full' />
             </div>
 
@@ -20,7 +20,7 @@ const CategoryPage = ({category} : CategoryPageProps) => {
                 <section className='w-full md:w-2/3'>
                     <div className='border-b-4 border-b-black w-full'>        
                         <div className="relative w-fit px-4 py-2 bg-black">
-                            <div className='top-0 left-[100%] triangle'></div>
+                            <div className='top-0 left-[100%] border-l-[15px] border-l-black triangle'></div>
                             <p className="text-md text-white text-center">Category</p>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ const CategoryPage = ({category} : CategoryPageProps) => {
                 </section>
 
             </div>
-        </div>
+        </>
     )
 }
 

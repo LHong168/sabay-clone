@@ -1,6 +1,6 @@
 import React from 'react';
-import HotNews from '@/app/components/sideNews/hotNews';
-import RecentNews from '@/app/components/sideNews/recentNews';
+import HotNews from '@/app/components/sideNews/hot-news';
+import RecentNews from '@/app/components/sideNews/recent-news';
 
 const ArticlePage = async () => {
 
@@ -16,11 +16,10 @@ const ArticlePage = async () => {
     });
 
   return (
-    <div className='w-full md:w-3/5 m-auto mb-5'>
-
-        <div className='md:hidden block flex justify-center'>
-            <img src="/ads.png" alt="" className='my-10 w-1/2 md:w-full' />
-        </div>
+    <>
+      <div className='md:hidden flex justify-center'>
+          <img src="/ads.png" alt="" className='my-10 w-1/2 md:w-full' />
+      </div>
 
       <div className='space-x-10 flex flex-wrap md:flex-nowrap'>
         <section className='w-full md:w-2/3 bg-white shadow-lg p-5'>
@@ -51,7 +50,7 @@ const ArticlePage = async () => {
 
         </section>
       </div>
-    </div>
+    </>
   )
 }
 

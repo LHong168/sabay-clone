@@ -1,6 +1,6 @@
 import React from 'react';
 import ParentLayout from '@/app/components/layout';
-import ArticlePage from './articlePage';
+import ArticlePage from './article-page';
 
 const Article = async () => {
 

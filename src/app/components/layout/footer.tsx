@@ -3,9 +3,9 @@ import React from 'react'
 function Footer() {
   return (
     <footer className='bg-black py-5'>
-        <div className='text-white md:w-3/5 m-auto flex justify-between flex-wrap text-center md:text-start'>
+        <div className='text-white w-full md:w-5/6 xl:w-3/5 m-auto flex justify-between flex-wrap text-center md:text-start'>
             <div className='w-full md:w-[25%] mb-5'>
-                <div className='w-full flex justify-center md:justify-start align-middle'>
+                <div className='w-full flex justify-center md:justify-start'>
                     <img src="/footer-logo.png" alt="" />
                 </div>
                 <p className='text-md text-gray-400 mt-2'>​© រក្សា​សិទ្ធិ​គ្រប់​យ៉ាង​ដោយ​ Sabay ឆ្នាំ​២០២៤</p>
@@ -22,7 +22,7 @@ function Footer() {
 
                 <div className='mt-3'>
                     <p className='text-md text-gray-300 font-medium'>ផលិត​ផល​ និង​ សេវាកម្ម របស់ Sabay</p>
-                    <div className='mt-2 flex justify-center'>
+                    <div className='mt-2 flex justify-center md:justify-start'>
                         <img src="/sabay_logo.png" alt="" className='w-10' />
                     </div>
                 </div>

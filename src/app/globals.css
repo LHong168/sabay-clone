@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .triangle{
-    border-left: 15px solid;
+    /* border-left: 15px solid (--color); */
     border-top: 40px solid transparent;
     border-bottom: 0px transparent;
     position: absolute;

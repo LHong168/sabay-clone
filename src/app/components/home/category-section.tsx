@@ -6,13 +6,14 @@ const CategorySection = () => {
     <>
     <section className='mb-10 hidden md:block'>
 
-        <div className='border-b-4 border-b-black w-full'>        
-            <div className="relative w-fit px-4 py-2 bg-black">
-                <div className='top-0 left-[100%] triangle'></div>
+        <div className='border-b-4 border-b-pink-500 w-full'>        
+            <div className="relative w-fit px-4 py-2 bg-pink-500">
+                <div className='top-0 left-[100%] border-l-[15px] border-l-pink-500 triangle'></div>
                 <p className="text-md text-white text-center">Category</p>
             </div>
         </div>
-
+        
+        {/* Tablet and Desktop Section */}
         <div className='bg-white py-5 px-10 flex space-x-5 shadow-md'>
 
             <div className='w-1/3 group relative'>
@@ -39,6 +40,8 @@ const CategorySection = () => {
         </div>
 
     </section>
+
+    {/* Mobile Section */}
     <section className='mb-10 block md:hidden'>
 
         <div className='border-b-4 border-b-black w-full'>        

@@ -14,7 +14,11 @@ export default function ParentLayout({
       <>
         <Banner></Banner>
         <NavBar></NavBar>
-        <main className='md:py-5 bg-[#F6F6F6]'>{children}</main>
+        <main className='md:py-5 bg-[#F6F6F6]'>
+          <div className='md:w-5/6 xl:w-3/5 m-auto mb-5'>
+            {children}
+          </div>
+        </main>
         <Footer></Footer>
       </>
     );
