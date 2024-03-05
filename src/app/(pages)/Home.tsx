@@ -3,16 +3,36 @@ import TopSection from '../components/home/top-section';
 import VideoSection from '../components/home/video-section';
 import CategorySection from '../components/home/category-section';
 
-const HomePage = () => {
-  return (
-    <>
-      <TopSection/>
+async function fetchArticles() {
+    const requestOptions = {
+        headers: {
+            Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+        },
+    };
 
-      <VideoSection></VideoSection>
+    try {
+        const res = await fetch(`${process.env.STRAPI_API_URL}/articles?populate=*&pagination[pageSize]=4`, requestOptions)
+        const response = await res.json();
+        return response;
+    } catch(err) {
+        console.error(err);
+    }
+    
+}
 
-      <CategorySection></CategorySection>
-    </>
-  )
+const HomePage = async () => {
+
+    const articles  = await fetchArticles();
+
+    return (
+        <>
+            <TopSection articles={articles?.data} />
+
+            <VideoSection />
+
+            <CategorySection/>
+        </>
+    )
 }
 
 export default HomePage

@@ -4,35 +4,32 @@ import HorizontalCard from '../cards/horizontal-card';
 import Card from '../cards/card';
 
 const CategoryList = () => {
-  return (
-    <div className='bg-white md:p-2 md:py-5 md:px-10 space-y-3 shadow-md'>
+    return (
+        <div className='space-y-3 bg-white shadow-md md:p-2 md:px-10 md:py-5'>
 
-        {/* Tablet and Desktop Section */}
-        <div className='hidden md:block'>
-            <div className='w-full flex space-x-5 mb-10'>
-                <BigCard></BigCard>
-                <BigCard></BigCard>
-            </div>
+            {/* Tablet and Desktop Section */}
+            <div className='hidden md:block'>
+                <div className='mb-10 flex w-full space-x-5'>
+                    <BigCard/>
+                    <BigCard/>
+                </div>
 
-            <div className='space-y-5'>
-                <div className='flex space-x-3 h-48 group'>
-                    <div className='bg-black w-1/3 flex justify-center items-center'>
-                        <img src="/maxresdefault.jpg" alt="" className='transition-transform ease-in-out transform group-hover:scale-95 object-cover h-full' />
+                <div className='space-y-5'>
+                    <div className='group flex h-48 space-x-3'>
+                        <div className='flex w-1/3 items-center justify-center bg-black'>
+                            <img src="/maxresdefault.jpg" alt="" className='h-full transform object-cover transition-transform ease-in-out group-hover:scale-95' />
+                        </div>
+                        <HorizontalCard/>
                     </div>
-                    <HorizontalCard></HorizontalCard>
                 </div>
             </div>
-        </div>
 
-        {/* Mobile Section */}
-        <div className='md:hidden grid grid-cols-2 gap-2 overflow-clip p-1'>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
-            <Card></Card>
+            {/* Mobile Section */}
+            <div className='grid grid-cols-2 gap-2 overflow-clip p-1 md:hidden'>
+                <Card />
+            </div>
         </div>
-    </div>
-  )
+    )
 }
 
 export default CategoryList
