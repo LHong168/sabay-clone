@@ -28,7 +28,7 @@ const HomePage = async () => {
         <>
             <TopSection articles={articles?.data} />
 
-            <VideoSection />
+            {/* <VideoSection /> */}
 
             <CategorySection/>
         </>
