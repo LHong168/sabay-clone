@@ -1,38 +1,21 @@
-import React from 'react';
-import TopSection from '../components/home/top-section';
-import VideoSection from '../components/home/video-section';
-import CategorySection from '../components/home/category-section';
-
-async function fetchArticles() {
-    const requestOptions = {
-        headers: {
-            Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-        },
-    };
-
-    try {
-        const res = await fetch(`${process.env.STRAPI_API_URL}/articles?populate=*&pagination[pageSize]=4`, requestOptions)
-        const response = await res.json();
-        return response;
-    } catch(err) {
-        console.error(err);
-    }
-    
-}
+import React from "react";
+import TopSection from "../components/home/top-section";
+import VideoSection from "../components/home/video-section";
+import CategorySection from "../components/home/category-section";
+import { fetchArticles } from "../api/article";
 
 const HomePage = async () => {
+  const articles = await fetchArticles();
 
-    const articles  = await fetchArticles();
+  return (
+    <>
+      <TopSection articles={articles?.data} />
 
-    return (
-        <>
-            <TopSection articles={articles?.data} />
+      {/* <VideoSection /> */}
 
-            {/* <VideoSection /> */}
+      <CategorySection articles={articles?.data} />
+    </>
+  );
+};
 
-            <CategorySection/>
-        </>
-    )
-}
-
-export default HomePage
+export default HomePage;

@@ -1,16 +1,28 @@
-import React from 'react'
+import React from "react";
+import { ArticleType } from "@/app/share/types/article-type";
 
-const BigCard = () => {
-    return (
-        <div className='group'>
-            <div className='w-full bg-black group-hover:shadow-[inset_0_-2px_4px_rgba(5,5,5,5)]'>
-                <img src="/maxresdefault.jpg" alt="" className='transform transition-transform ease-in-out group-hover:scale-95' />
-            </div>
-            <div className='py-1'>
-                <h1 className='text-lg font-medium text-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
-            </div>
-        </div>
-    )
-}
+const BigCard: React.FC<{ article: ArticleType }> = ({ article }) => {
+  const details = {
+    title: article.attributes.title,
+    thumbNail:
+      process.env.STRAPI_IMAGE_URL +
+      article.attributes.thumbnail.data.attributes.url,
+  };
+
+  return (
+    <div className="group">
+      <div className="w-full bg-black flex justify-center group-hover:shadow-[inset_0_-2px_4px_rgba(5,5,5,5)]">
+        <img
+          src={details.thumbNail}
+          alt=""
+          className="h-60 object-contain transform transition-transform ease-in-out group-hover:scale-95"
+        />
+      </div>
+      <div className="py-1">
+        <h1 className="text-lg font-medium text-black">{details.title}</h1>
+      </div>
+    </div>
+  );
+};
 
 export default BigCard;

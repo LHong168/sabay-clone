@@ -1,9 +1,11 @@
-'use client';
-import React, {useState} from 'react';
-import Link from 'next/link';
+"use client";
+import React, { useState } from "react";
+import Link from "next/link";
+import { useParams } from "next/navigation";
 
 function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const params = useParams<{ category?: string }>();
 
   return (
     <nav className="bg-black md:bg-red-500 sticky top-0 z-30">
@@ -45,27 +47,43 @@ function NavBar() {
         </button>
 
         {/* Mobile navigation menu */}
-        <div className={`mt-4 ${isOpen ? 'block' : 'hidden'} md:hidden w-full`}>
+        <div className={`mt-4 ${isOpen ? "block" : "hidden"} md:hidden w-full`}>
           <ul className=" grid grid-cols-2">
-            <li className="mb-2 col-span-2 px-3 py-2 hover:bg-red-500">
-              <Link href="/" className="text-white hover:text-gray-300">Home</Link>
+            <li className="mb-2 col-span-2 px-3 py-2 bg-red-600">
+              <Link href="/" className="text-white">
+                Home
+              </Link>
             </li>
             <li className="mb-2 px-3 py-2">
-              <Link href="/topics/Entertainment" className="text-white hover:text-gray-300">Entertainment</Link>
+              <Link href="/topics/Entertainment" className="text-white">
+                Entertainment
+              </Link>
             </li>
           </ul>
         </div>
       </div>
 
       {/* Desktop navigation menu */}
-      <div className='hidden md:block py-1 w-full md:w-5/6 xl:w-3/5 m-auto'>
-        <ul className='flex text-white font-medium'>
-          <Link href="/" className='py-3 text-xl font-medium'>Home</Link>
-          <Link href="/topics/Entertainment" className='text-gray-200 p-3 text-xl  hover:text-white'>Entertainment</Link>
+      <div className="hidden md:block w-full md:w-5/6 xl:w-3/5 m-auto">
+        <ul className="flex text-white font-medium">
+          <li
+            className={`p-3 ${params.category === undefined ? "bg-red-600" : "hover:text-gray-300"}`}
+          >
+            <Link href="/" className="text-xl font-medium">
+              Home
+            </Link>
+          </li>
+          <li
+            className={`p-3 ${params.category === "Entertainment" ? "bg-red-600" : "hover:text-gray-300"}`}
+          >
+            <Link href="/topics/Entertainment" className="text-xl font-medium">
+              Entertainment
+            </Link>
+          </li>
         </ul>
       </div>
     </nav>
-  )
+  );
 }
 
 export default NavBar;
