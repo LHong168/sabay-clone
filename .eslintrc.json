@@ -1,14 +1,18 @@
 {
-  "extends": ["next/core-web-vitals", "prettier"],
-  "plugins": ["tailwindcss", "plugin:@typescript-eslint/recommended", "prettier"],
-  "rules": {
-    "indent": ["error", 4],
-    "quotes": ["error", "double"],
-    "prefer-const": "error",
-    "prettier/prettier": ["error"],
-    "tailwindcss/classnames-order": ["error", { "order": "strict" }],
-    "tailwindcss/classnames-format": ["error", "kebab"],
-    "@typescript-eslint/no-unused-vars": "error",
-    "@typescript-eslint/no-explicit-any": "error"
-  }
+    "extends": ["next/core-web-vitals", "prettier"],
+    "plugins": [
+        "tailwindcss",
+        "plugin:@typescript-eslint/recommended",
+        "prettier"
+    ],
+    "rules": {
+        "indent": ["error", 4],
+        "quotes": ["error", "double"],
+        "prefer-const": "error",
+        "prettier/prettier": ["error"],
+        "tailwindcss/classnames-order": ["error", { "order": "strict" }],
+        "tailwindcss/classnames-format": ["error", "kebab"],
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "error"
+    }
 }

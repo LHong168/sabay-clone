@@ -1,26 +1,24 @@
-import type { Metadata } from "next";
-import { Battambang } from "next/font/google";
-import "./globals.css";
-
-const battambang = Battambang({
-  subsets: ["khmer"],
-  weight: ["400"],
-});
+import type { Metadata } from 'next'
+import { inter, battambang } from './font'
+import './globals.css'
 
 export const metadata: Metadata = {
-  title: "Sabay News",
-};
+    title: 'Sabay News',
+}
 
 export default function RootLayout({
-  children,
+    children,
 }: Readonly<{
-  children: React.ReactNode;
+    children: React.ReactNode
 }>) {
-  return (
-    <html lang="en">
-      <body className={battambang.className} suppressHydrationWarning={true}>
-        {children}
-      </body>
-    </html>
-  );
+    return (
+        <html lang="en">
+            <body
+                className={`${battambang.className} ${inter.className}`}
+                suppressHydrationWarning={true}
+            >
+                {children}
+            </body>
+        </html>
+    )
 }

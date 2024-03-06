@@ -1,58 +1,72 @@
-"use server";
+'use server'
 
-export async function fetchArticlesById(id: string) {
-  const requestOptions = {
+const requestOptions = {
     headers: {
-      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
+        Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
     },
-  };
-
-  try {
-    const res = await fetch(
-      `${process.env.STRAPI_API_URL}/articles/${id}?populate=*`,
-      requestOptions,
-    );
-    const response = await res.json();
-    return response;
-  } catch (err) {
-    console.error(err);
-  }
-}
-
-export async function fetchArticlesByCategory(category: string) {
-  const requestOptions = {
-    headers: {
-      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-    },
-  };
-
-  try {
-    const res = await fetch(
-      `${process.env.STRAPI_API_URL}/articles?populate=*&filters[article_category][name][$eq]=${category}&sort[0]=createdAt:desc`,
-      requestOptions,
-    );
-    const response = await res.json();
-    return response;
-  } catch (err) {
-    console.error(err);
-  }
 }
 
 export async function fetchArticles() {
-  const requestOptions = {
-    headers: {
-      Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
-    },
-  };
+    try {
+        const res = await fetch(
+            `${process.env.STRAPI_API_URL}/articles?populate=*&sort[0]=published_date:desc`,
+            requestOptions
+        )
+        const response = await res.json()
+        return response
+    } catch (err) {
+        console.error(err)
+    }
+}
 
-  try {
-    const res = await fetch(
-      `${process.env.STRAPI_API_URL}/articles?populate=*&pagination[pageSize]=4`,
-      requestOptions,
-    );
-    const response = await res.json();
-    return response;
-  } catch (err) {
-    console.error(err);
-  }
+export async function fetchArticlesById(id: string) {
+    try {
+        const res = await fetch(
+            `${process.env.STRAPI_API_URL}/articles/${id}`,
+            requestOptions
+        )
+        const response = await res.json()
+        return response
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export async function fetchArticlesByCategory(category: string) {
+    try {
+        const res = await fetch(
+            `${process.env.STRAPI_API_URL}/articles?populate=*&filters[article_category][name][$eq]=${category}&sort[0]=published_date:desc`,
+            requestOptions
+        )
+        const response = await res.json()
+        return response
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export async function fetchArticlesByView() {
+    try {
+        const res = await fetch(
+            `${process.env.STRAPI_API_URL}/articles?populate=*&sort[0]=viewCount:desc&pagination[pageSize]=5`,
+            requestOptions
+        )
+        const response = await res.json()
+        return response
+    } catch (err) {
+        console.error(err)
+    }
+}
+
+export async function fetchArticlesByRecent() {
+    try {
+        const res = await fetch(
+            `${process.env.STRAPI_API_URL}/articles?populate=*&sort[0]=published_date:desc&pagination[pageSize]=5`,
+            requestOptions
+        )
+        const response = await res.json()
+        return response
+    } catch (err) {
+        console.error(err)
+    }
 }
