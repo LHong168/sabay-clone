@@ -14,6 +14,7 @@ const FeatureCard = ({ article }: { article: ArticleType }) => {
             ? process.env.STRAPI_IMAGE_URL +
               article.attributes.thumbnail.data.attributes.url
             : '',
+        hash: article.attributes.thumbnail.data.attributes.hash,
     }
 
     return (
@@ -23,7 +24,7 @@ const FeatureCard = ({ article }: { article: ArticleType }) => {
                 <div className="flex items-center justify-center max-h-[20em]">
                     <img
                         src={details.thumbNail}
-                        alt=""
+                        alt={details.hash}
                         className="object-contain opacity-70 h-screen"
                     />
                 </div>

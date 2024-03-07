@@ -50,6 +50,7 @@ interface Thumbnail {
             height: number
             size: number
             url: string
+            hash: string
         }
     }
 }

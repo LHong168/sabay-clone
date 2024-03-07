@@ -11,6 +11,7 @@ const Card = ({ article }: { article: ArticleType }) => {
               article.attributes.thumbnail.data.attributes.url
             : '',
         category: article.attributes.article_category.data.attributes.name,
+        hash: article.attributes.thumbnail.data.attributes.hash,
     }
 
     return (
@@ -19,7 +20,7 @@ const Card = ({ article }: { article: ArticleType }) => {
                 <div className="max-h-[7em] min-h-[7em] bg-black group-hover:shadow-inner flex justify-center">
                     <img
                         src={details.thumbNail}
-                        alt=""
+                        alt={details.hash}
                         className="object-contain transform transition-transform ease-in-out group-hover:scale-95"
                     />
                 </div>

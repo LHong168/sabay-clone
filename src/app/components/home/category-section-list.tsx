@@ -38,14 +38,7 @@ const CategorySectionList = async ({
 
             {/* Mobile Section */}
             <section className="mb-10 block md:hidden">
-                <div className="w-full border-b-4 border-b-black">
-                    <div className="relative w-fit bg-black px-4 py-2">
-                        <div className="triangle left-[100%] top-0"></div>
-                        <p className="text-md text-center text-white">
-                            Category
-                        </p>
-                    </div>
-                </div>
+                <CategoryPageTag categoryName={categoryName} />
 
                 <div className="bg-white px-5 py-3 shadow-md">
                     <div className="flex space-x-3 overflow-x-auto [&_div]:w-52">

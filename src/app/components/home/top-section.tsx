@@ -19,8 +19,8 @@ const TopSection = async () => {
             </div>
 
             <div className="hidden w-1/3 space-y-3 md:block">
-                <img src="ads.png" alt="" />
-                <img src="ads.png" alt="" />
+                <img src="ads.png" alt="ads" />
+                <img src="ads.png" alt="ads" />
             </div>
         </section>
     )

@@ -14,6 +14,7 @@ const BigCard = ({ article }: { article: ArticleType }) => {
             ? process.env.STRAPI_IMAGE_URL +
               article.attributes.thumbnail.data.attributes.url
             : '',
+        hash: article.attributes.thumbnail.data.attributes.hash,
     }
 
     return (
@@ -24,7 +25,7 @@ const BigCard = ({ article }: { article: ArticleType }) => {
                         width={400}
                         height={250}
                         src={details.thumbNail}
-                        alt=""
+                        alt={details.hash}
                         className="min-h-60 max-h-60 object-contain transform transition-transform ease-in-out group-hover:scale-95"
                     />
                 </div>

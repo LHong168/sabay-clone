@@ -14,6 +14,7 @@ const HorizontalCard: React.FC<{ article: ArticleType }> = ({ article }) => {
             ? process.env.STRAPI_IMAGE_URL +
               article.attributes.thumbnail.data.attributes.url
             : '',
+        hash: article.attributes.thumbnail.data.attributes.hash,
     }
 
     return (
@@ -22,7 +23,7 @@ const HorizontalCard: React.FC<{ article: ArticleType }> = ({ article }) => {
                 <div className="flex w-1/3 items-center justify-center bg-black">
                     <img
                         src={details.thumbNail}
-                        alt=""
+                        alt={details.hash}
                         className="h-full transform object-cover transition-transform ease-in-out group-hover:scale-95"
                     />
                 </div>

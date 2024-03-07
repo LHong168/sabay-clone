@@ -27,11 +27,10 @@ const ColorCard = ({
             ? process.env.STRAPI_IMAGE_URL +
               article.attributes.thumbnail.data.attributes.url
             : '',
+        hash: article.attributes.thumbnail.data.attributes.hash,
     }
 
     const tagClass = categoryColors[categoryName as keyof typeof categoryColors]
-
-    console.log(tagClass)
 
     return (
         <div className="group relative col-span-2">
@@ -39,7 +38,7 @@ const ColorCard = ({
                 <div className="bg-black group-hover:shadow-inner flex justify-center">
                     <img
                         src={details.thumbNail}
-                        alt=""
+                        alt={details.hash}
                         className="max-h-60 min-h-60 transform transition-transform ease-in-out group-hover:scale-95"
                     />
                 </div>
