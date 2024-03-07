@@ -5,9 +5,7 @@ import HomePage from './(pages)/Home'
 function page() {
     return (
         <>
-            <ParentLayout>
-                <HomePage></HomePage>
-            </ParentLayout>
+            <HomePage></HomePage>
         </>
     )
 }

@@ -1,17 +1,44 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useParams, useSearchParams } from 'next/navigation'
 import { CategoryData, CategoryType } from '@/app/share/types/category-type'
 import AnimateHeight from 'react-animate-height'
 
+type ActiveType = 'home' | 'entertainment' | 'technology' | string
+
+function ToggleButton({
+    isOpen,
+    toggle,
+}: {
+    isOpen: boolean
+    toggle: () => void
+}) {
+    return (
+        <button
+            className="text-white focus:outline-none mb-1"
+            aria-expanded={isOpen}
+            aria-controls="example-panel"
+            onClick={toggle}
+        >
+            {isOpen ? (
+                <img src="/icons/close.png" alt="Close" className="w-8 h-8" />
+            ) : (
+                <img src="/icons/menu.png" alt="Menu" className="w-8 h-8" />
+            )}
+        </button>
+    )
+}
+
 function NavBar({ categories }: { categories: CategoryType }) {
     const [isOpen, setIsOpen] = useState(false)
     const [height, setHeight] = useState<any>(0)
-
     const params = useParams<{ category?: string }>()
     const searchParams = useSearchParams()
     const search = searchParams.get('category')
+    const activeCategory = search || params.category // Set active category based on search params or dynamic route parameter
+
+    const [active, setActive] = useState<ActiveType>()
 
     function toggle() {
         setHeight(height === 0 ? 'auto' : 0)
@@ -20,51 +47,14 @@ function NavBar({ categories }: { categories: CategoryType }) {
 
     return (
         <nav className="bg-black md:bg-red-500 sticky top-0 z-30">
+            {/* mobile view */}
             <div className="md:hidden flex flex-wrap justify-between items-center p-3">
-                {/* Toggle button for mobile */}
-                <button
-                    className="text-white focus:outline-none mb-1"
-                    aria-expanded={height !== 0}
-                    aria-controls="example-panel"
-                    onClick={toggle}
-                >
-                    {isOpen ? (
-                        <svg
-                            className="w-10 h-10"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M6 18L18 6M6 6l12 12"
-                            />
-                        </svg>
-                    ) : (
-                        <svg
-                            className="w-10 h-10"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h16m-7 6h7"
-                            />
-                        </svg>
-                    )}
-                </button>
-
-                {/* Mobile navigation menu */}
-                <div className={`md:hidden w-full`}>
+                <ToggleButton isOpen={isOpen} toggle={toggle} />
+                <div className={`w-full ${isOpen ? 'block' : 'hidden'}`}>
                     <AnimateHeight
                         id="example-panel"
                         duration={300}
-                        height={height} // see props documentation below
+                        height={height}
                     >
                         <ul className=" grid grid-cols-2 text-white">
                             <li
@@ -78,7 +68,7 @@ function NavBar({ categories }: { categories: CategoryType }) {
                                 (category: CategoryData, index: number) => (
                                     <li
                                         key={index}
-                                        className={`mb-2 col-span-1 px-3 py-2 ${search || params.category === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                                        className={`mb-2 col-span-1 px-3 py-2 ${activeCategory === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
                                     >
                                         <Link
                                             href={`/topics/${category.attributes.name}`}
@@ -94,21 +84,29 @@ function NavBar({ categories }: { categories: CategoryType }) {
                 </div>
             </div>
 
-            {/* Desktop navigation menu */}
+            {/* desktop view */}
             <div className="hidden md:block w-full md:w-5/6 xl:w-3/5 m-auto">
                 <ul className="flex text-white font-medium">
                     <li
-                        className={`p-3 ${params.category === undefined && search === null ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                        className={`p-3 ${active === 'home' ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                        onClick={() => setActive('home')}
                     >
                         <Link href="/" className="text-xl font-medium">
-                            Home
+                            <img
+                                src="/icons/home-icon.png" // Path to your SVG image in the public directory
+                                alt="home"
+                                className="w-8 h-8"
+                            />
                         </Link>
                     </li>
                     {categories?.data.map(
                         (category: CategoryData, index: number) => (
                             <li
                                 key={index}
-                                className={`p-3 ${search === category.attributes.name || params.category === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                                className={`p-3 ${active === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                                onClick={() =>
+                                    setActive(category.attributes.name)
+                                }
                             >
                                 <Link
                                     href={`/topics/${category.attributes.name}`}
