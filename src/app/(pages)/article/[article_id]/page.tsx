@@ -8,7 +8,7 @@ const Article = async ({ params }: { params: { article_id: string } }) => {
 
     return (
         <>
-            {articles.data ? (
+            {articles?.data ? (
                 <ArticlePage articles={articles.data} />
             ) : (
                 <NotFoundPage></NotFoundPage>

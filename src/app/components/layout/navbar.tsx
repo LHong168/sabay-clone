@@ -1,11 +1,9 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
 import { useParams, useSearchParams } from 'next/navigation'
 import { CategoryData, CategoryType } from '@/app/share/types/category-type'
 import AnimateHeight from 'react-animate-height'
-
-type ActiveType = 'home' | 'entertainment' | 'technology' | string
 
 function ToggleButton({
     isOpen,
@@ -37,8 +35,6 @@ function NavBar({ categories }: { categories: CategoryType }) {
     const searchParams = useSearchParams()
     const search = searchParams.get('category')
     const activeCategory = search || params.category // Set active category based on search params or dynamic route parameter
-
-    const [active, setActive] = useState<ActiveType>()
 
     function toggle() {
         setHeight(height === 0 ? 'auto' : 0)
@@ -88,8 +84,7 @@ function NavBar({ categories }: { categories: CategoryType }) {
             <div className="hidden md:block w-full md:w-5/6 xl:w-3/5 m-auto">
                 <ul className="flex text-white font-medium">
                     <li
-                        className={`p-3 ${active === 'home' ? 'bg-red-600' : 'hover:text-gray-300'}`}
-                        onClick={() => setActive('home')}
+                        className={`p-3 ${activeCategory === undefined && search === null ? 'bg-red-600' : 'hover:text-gray-300'}`}
                     >
                         <Link href="/" className="text-xl font-medium">
                             <img
@@ -103,10 +98,7 @@ function NavBar({ categories }: { categories: CategoryType }) {
                         (category: CategoryData, index: number) => (
                             <li
                                 key={index}
-                                className={`p-3 ${active === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
-                                onClick={() =>
-                                    setActive(category.attributes.name)
-                                }
+                                className={`p-3 ${activeCategory === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
                             >
                                 <Link
                                     href={`/topics/${category.attributes.name}`}
