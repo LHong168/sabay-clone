@@ -17,7 +17,7 @@ const CategoryList = ({ articles }: { articles: ArticleType[] }) => {
                         ))}
                 </div>
 
-                <div className="space-y-5">
+                <div className="[&_div]:mb-2">
                     {articles
                         .slice(2)
                         .map((article: ArticleType, index: number) => (

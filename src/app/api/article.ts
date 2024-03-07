@@ -4,6 +4,7 @@ const requestOptions = {
     headers: {
         Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
     },
+    next: { revalidate: 5 },
 }
 
 export async function fetchArticles() {
@@ -35,10 +36,11 @@ export async function fetchArticlesById(id: string) {
 export async function fetchArticlesByCategory(category: string) {
     try {
         const res = await fetch(
-            `${process.env.STRAPI_API_URL}/articles?populate=*&filters[article_category][name][$eq]=${category}&sort[0]=published_date:desc`,
+            `${process.env.STRAPI_API_URL}/articles?populate=*&filters[article_category][name][$eq]=${category}&sort[0]=publishedAt:desc`,
             requestOptions
         )
         const response = await res.json()
+
         return response
     } catch (err) {
         console.error(err)

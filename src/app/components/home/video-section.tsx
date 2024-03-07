@@ -1,16 +1,16 @@
 import React from 'react'
 import Card from '../cards/card'
 import BigCard from '../cards/big-card'
-import { fetchArticles } from '@/app/api/article'
+import { fetchArticles, fetchArticlesByRecent } from '@/app/api/article'
 import { ArticleType } from '@/app/share/types/article-type'
 import { checkEmbed } from '@/app/utils/check-embed'
 
 const VideoSection = async () => {
-    const articles = await fetchArticles()
+    const articles = await fetchArticlesByRecent()
 
-    const vidArticle = checkEmbed(articles.data)
+    // const vidArticle = checkEmbed(articles.data)
 
-    console.log(vidArticle)
+    const vidArticle = articles.data
 
     return (
         <>

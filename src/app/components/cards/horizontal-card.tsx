@@ -7,9 +7,10 @@ const HorizontalCard: React.FC<{ article: ArticleType }> = ({ article }) => {
         title: article.attributes.title,
         subtitle: article.attributes.subtitle,
         publishedDate: article.attributes.publishedAt.slice(0, 10),
-        thumbNail:
-            process.env.STRAPI_IMAGE_URL +
-            article.attributes.thumbnail.data.attributes.url,
+        thumbNail: article.attributes.thumbnail?.data?.attributes?.url
+            ? process.env.STRAPI_IMAGE_URL +
+              article.attributes.thumbnail.data.attributes.url
+            : '',
     }
 
     return (

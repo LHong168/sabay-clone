@@ -12,7 +12,7 @@ const TopSection = async () => {
                 {articles.data
                     .slice(0, 4)
                     .map((article: ArticleType, index: number) => (
-                        <div key={index} className="w-fit flex-none">
+                        <div key={index} className="w-full flex-none">
                             <FeatureCard article={article} />
                         </div>
                     ))}

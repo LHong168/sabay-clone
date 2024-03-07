@@ -5,9 +5,10 @@ import Link from 'next/link'
 const Card = ({ article }: { article: ArticleType }) => {
     const details = {
         title: article.attributes.title,
-        thumbNail:
-            process.env.STRAPI_IMAGE_URL +
-            article.attributes.thumbnail.data.attributes.url,
+        thumbNail: article.attributes.thumbnail?.data?.attributes?.url
+            ? process.env.STRAPI_IMAGE_URL +
+              article.attributes.thumbnail.data.attributes.url
+            : '',
     }
 
     return (

@@ -1,8 +1,8 @@
 import React from 'react'
 
 const categoryColors = {
-    Entertainment: 'pink-500',
-    Technology: 'blue-500',
+    entertainment: 'pink-500',
+    technology: 'blue-500',
 }
 
 const CategoryPageTag = ({ categoryName }: { categoryName: string }) => {

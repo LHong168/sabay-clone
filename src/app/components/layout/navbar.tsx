@@ -2,8 +2,9 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
+import { CategoryData, CategoryType } from '@/app/share/types/category-type'
 
-function NavBar() {
+function NavBar({ categories }: { categories: CategoryType | any }) {
     const [isOpen, setIsOpen] = useState(false)
     const params = useParams<{ category?: string }>()
 
@@ -50,20 +51,29 @@ function NavBar() {
                 <div
                     className={`mt-4 ${isOpen ? 'block' : 'hidden'} md:hidden w-full`}
                 >
-                    <ul className=" grid grid-cols-2">
-                        <li className="mb-2 col-span-2 px-3 py-2 bg-red-600">
+                    <ul className=" grid grid-cols-2 text-white">
+                        <li
+                            className={`mb-2 col-span-2 px-3 py-2 ${params.category === undefined ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                        >
                             <Link href="/" className="text-white">
                                 Home
                             </Link>
                         </li>
-                        <li className="mb-2 px-3 py-2">
-                            <Link
-                                href="/topics/Entertainment"
-                                className="text-white"
-                            >
-                                Entertainment
-                            </Link>
-                        </li>
+                        {categories?.data.map(
+                            (category: CategoryData, index: number) => (
+                                <li
+                                    key={index} // Add a unique key for each element in the map
+                                    className={`mb-2 col-span-1 px-3 py-2 ${params.category === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                                >
+                                    <Link
+                                        href={`/topics/${category.attributes.name}`}
+                                        className="text-xl font-medium"
+                                    >
+                                        {category.attributes.name}
+                                    </Link>
+                                </li>
+                            )
+                        )}
                     </ul>
                 </div>
             </div>
@@ -78,16 +88,21 @@ function NavBar() {
                             Home
                         </Link>
                     </li>
-                    <li
-                        className={`p-3 ${params.category === 'Entertainment' ? 'bg-red-600' : 'hover:text-gray-300'}`}
-                    >
-                        <Link
-                            href="/topics/Entertainment"
-                            className="text-xl font-medium"
-                        >
-                            Entertainment
-                        </Link>
-                    </li>
+                    {categories?.data.map(
+                        (category: CategoryData, index: number) => (
+                            <li
+                                key={index} // Add a unique key for each element in the map
+                                className={`p-3 ${params.category === category.attributes.name ? 'bg-red-600' : 'hover:text-gray-300'}`}
+                            >
+                                <Link
+                                    href={`/topics/${category.attributes.name}`}
+                                    className="text-xl font-medium"
+                                >
+                                    {category.attributes.name}
+                                </Link>
+                            </li>
+                        )
+                    )}
                 </ul>
             </div>
         </nav>

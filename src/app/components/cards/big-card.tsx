@@ -1,23 +1,27 @@
 import React from 'react'
 import { ArticleType } from '@/app/share/types/article-type'
 import Link from 'next/link'
+import Image from 'next/image'
 
 const BigCard = ({ article }: { article: ArticleType }) => {
     const details = {
         title: article.attributes.title,
-        thumbNail:
-            process.env.STRAPI_IMAGE_URL +
-            article.attributes.thumbnail.data.attributes.url,
+        thumbNail: article.attributes.thumbnail?.data?.attributes?.url
+            ? process.env.STRAPI_IMAGE_URL +
+              article.attributes.thumbnail.data.attributes.url
+            : '',
     }
 
     return (
         <Link href={`/article/${article.id}`}>
             <div className="group">
                 <div className="w-full bg-black flex justify-center group-hover:shadow-[inset_0_-2px_4px_rgba(5,5,5,5)]">
-                    <img
+                    <Image
+                        width={1000}
+                        height={1000}
                         src={details.thumbNail}
                         alt=""
-                        className="h-60 object-contain transform transition-transform ease-in-out group-hover:scale-95"
+                        className="min-h-60 max-h-60 object-contain transform transition-transform ease-in-out group-hover:scale-95"
                     />
                 </div>
                 <div className="py-1">
