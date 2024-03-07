@@ -4,15 +4,17 @@ import Link from 'next/link'
 
 const Card = ({ article }: { article: ArticleType }) => {
     const details = {
+        id: article.id,
         title: article.attributes.title,
         thumbNail: article.attributes.thumbnail?.data?.attributes?.url
             ? process.env.STRAPI_IMAGE_URL +
               article.attributes.thumbnail.data.attributes.url
             : '',
+        category: article.attributes.article_category.data.attributes.name,
     }
 
     return (
-        <Link href={`/article/${article.id}`}>
+        <Link href={`/article/${details.id}?category=${details.category}`}>
             <div className="group w-full">
                 <div className="max-h-[7em] min-h-[7em] bg-black group-hover:shadow-inner flex justify-center">
                     <img

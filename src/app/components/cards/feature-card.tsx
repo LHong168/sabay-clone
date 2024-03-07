@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 const FeatureCard: React.FC<{ article: ArticleType }> = ({ article }) => {
     const details = {
+        id: article.id,
         title: article.attributes.title,
         subtitle: article.attributes.subtitle,
         category:
@@ -17,7 +18,7 @@ const FeatureCard: React.FC<{ article: ArticleType }> = ({ article }) => {
     }
 
     return (
-        <Link href={`/article/${article.id}`}>
+        <Link href={`/article/${details.id}?category=${details.category}`}>
             <div className="group relative h-fit overflow-hidden bg-black shadow-lg md:h-full">
                 <div className="absolute bottom-0 left-0 right-0 top-0 z-10 bg-gradient-to-t from-black to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
                 <div className="flex items-center justify-center max-h-[20em]">

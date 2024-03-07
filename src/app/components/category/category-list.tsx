@@ -9,7 +9,7 @@ const CategoryList = ({ articles }: { articles: ArticleType[] }) => {
         <div className="space-y-3 bg-white shadow-md md:p-2 md:px-10 md:py-5">
             {/* Tablet and Desktop Section */}
             <div className="hidden md:block">
-                <div className="mb-10 flex w-full space-x-5">
+                <div className="mb-10 flex w-full space-x-5 overflow-hidden">
                     {articles
                         .slice(0, 2)
                         .map((article: ArticleType, index: number) => (

@@ -10,11 +10,12 @@ const ColorCard = ({ article }: { article: ArticleType }) => {
             ? process.env.STRAPI_IMAGE_URL +
               article.attributes.thumbnail.data.attributes.url
             : '',
+        category: article.attributes.article_category.data.attributes.name,
     }
 
     return (
         <div className="group relative col-span-2">
-            <Link href={`/article/${details.id}`}>
+            <Link href={`/article/${details.id}?category=${details.category}`}>
                 <div className="bg-black group-hover:shadow-inner flex justify-center">
                     <img
                         src={details.thumbNail}

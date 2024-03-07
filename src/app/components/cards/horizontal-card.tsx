@@ -4,8 +4,11 @@ import Link from 'next/link'
 
 const HorizontalCard: React.FC<{ article: ArticleType }> = ({ article }) => {
     const details = {
+        id: article.id,
         title: article.attributes.title,
         subtitle: article.attributes.subtitle,
+        category:
+            article.attributes.article_category?.data.attributes.name || '',
         publishedDate: article.attributes.publishedAt.slice(0, 10),
         thumbNail: article.attributes.thumbnail?.data?.attributes?.url
             ? process.env.STRAPI_IMAGE_URL +
@@ -14,7 +17,7 @@ const HorizontalCard: React.FC<{ article: ArticleType }> = ({ article }) => {
     }
 
     return (
-        <Link href={`/article/${article.id}`}>
+        <Link href={`/article/${details.id}?category=${details.category}`}>
             <div className="group flex h-48 space-x-3">
                 <div className="flex w-1/3 items-center justify-center bg-black">
                     <img

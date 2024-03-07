@@ -1,16 +1,18 @@
 import React from 'react'
 import Card from '../cards/card'
 import BigCard from '../cards/big-card'
-import { fetchArticles, fetchArticlesByRecent } from '@/app/api/article'
+import { fetchArticles } from '@/app/api/article'
 import { ArticleType } from '@/app/share/types/article-type'
 import { checkEmbed } from '@/app/utils/check-embed'
 
 const VideoSection = async () => {
-    const articles = await fetchArticlesByRecent()
+    const articles = await fetchArticles()
 
-    // const vidArticle = checkEmbed(articles.data)
+    let vidArticle: ArticleType[] = []
 
-    const vidArticle = articles.data
+    if (articles.data.length > 0) {
+        vidArticle = checkEmbed(articles.data)
+    }
 
     return (
         <>
@@ -24,20 +26,26 @@ const VideoSection = async () => {
                 </div>
 
                 <div className="bg-white px-10 py-5 shadow-md">
+                    <div className="w-full flex justify-center items-center">
+                        {vidArticle.length === 0 && <h1>Not found</h1>}
+                    </div>
+
                     <div className="mb-5 grid grid-cols-3 space-x-1">
-                        {vidArticle
-                            .slice(0, 3)
-                            .map((article: ArticleType, index: number) => (
-                                <BigCard key={index} article={article} />
-                            ))}
+                        {vidArticle.slice(0, 3).length > 0 &&
+                            vidArticle
+                                .slice(0, 3)
+                                .map((article: ArticleType, index: number) => (
+                                    <BigCard key={index} article={article} />
+                                ))}
                     </div>
 
                     <div className="grid grid-cols-4 space-x-3">
-                        {vidArticle
-                            .slice(3)
-                            .map((article: ArticleType, index: number) => (
-                                <Card key={index} article={article} />
-                            ))}
+                        {vidArticle.slice(3).length > 0 &&
+                            vidArticle
+                                .slice(3)
+                                .map((article: ArticleType, index: number) => (
+                                    <Card key={index} article={article} />
+                                ))}
                     </div>
                 </div>
             </section>

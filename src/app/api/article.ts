@@ -14,6 +14,7 @@ export async function fetchArticles() {
             requestOptions
         )
         const response = await res.json()
+
         return response
     } catch (err) {
         console.error(err)

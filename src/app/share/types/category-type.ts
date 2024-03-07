@@ -1,5 +1,5 @@
 export type CategoryType = {
-    data: {
+    data: Array<{
         id: number
         attributes: {
             name: string
@@ -7,7 +7,7 @@ export type CategoryType = {
             updatedAt: string
             publishedAt: string
         }
-    }
+    }>
 }
 
 export type CategoryData = {
