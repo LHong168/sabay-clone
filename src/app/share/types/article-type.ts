@@ -16,7 +16,7 @@ export interface ArticleType {
     }
 }
 
-export type ArticleCategory = {
+export type ArticleCategoryArray = {
     data: Array<{
         id: number
         attributes: {
@@ -26,6 +26,19 @@ export type ArticleCategory = {
             publishedAt: string
         }
     }>
+}
+
+export type ArticleCategory = {
+    data: {
+        id: number
+        attributes: {
+            name: string
+            width: number
+            height: number
+            size: number
+            url: string
+        }
+    }
 }
 
 interface Thumbnail {

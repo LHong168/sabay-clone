@@ -3,13 +3,12 @@ import { ArticleType } from '@/app/share/types/article-type'
 import CategoryFeatureTag from '../category/category-feature-tag'
 import Link from 'next/link'
 
-const FeatureCard: React.FC<{ article: ArticleType }> = ({ article }) => {
+const FeatureCard = ({ article }: { article: ArticleType }) => {
     const details = {
         id: article.id,
         title: article.attributes.title,
         subtitle: article.attributes.subtitle,
-        category:
-            article.attributes.article_category?.data.attributes.name || '',
+        category: article.attributes.article_category?.data.attributes.name,
         publishedDate: article.attributes.publishedAt.slice(0, 10),
         thumbNail: article.attributes.thumbnail?.data?.attributes?.url
             ? process.env.STRAPI_IMAGE_URL +

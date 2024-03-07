@@ -10,7 +10,7 @@ const HomePage = async () => {
 
             <VideoSection />
 
-            <CategorySection categoryName={'entertainment'} />
+            <CategorySection />
         </>
     )
 }
